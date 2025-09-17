@@ -1,2 +1,1 @@
-This portfolio is a reflection of my skills and projects as a developer. Built to be clean, responsive, and visually engaging, it's a home for my work.
-This site is styled with an aesthetic inspired by clean lines and a playful, modern feel, using the Coiny typeface for its standout headlines.
+
