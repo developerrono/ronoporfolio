@@ -1,0 +1,40 @@
+/* Portfolio-specific styles */
+
+/* Remove default focus styles and add custom ones */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid hsl(var(--teal));
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling for navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--surface-accent));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--teal));
+}
+
+/* Selection color */
+::selection {
+  background: hsl(var(--teal) / 0.3);
+  color: hsl(var(--foreground));
+}

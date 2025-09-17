@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Rono's Dark Portfolio Design System */
+
+@layer base {
+  :root {
+    /* Dark portfolio color palette */
+    --background: 0 0% 5.1%; /* #0D0D0D */
+    --foreground: 0 0% 98%;
+    --surface: 0 0% 11%; /* #1C1C1C */
+    --surface-hover: 0 0% 15%;
+    --surface-accent: 0 0% 20%;
+    
+    /* Accent colors */
+    --teal: 174 100% 40%; /* #14B8A6 */
+    --teal-glow: 174 100% 50%;
+    --neon-green: 120 100% 55%; /* #39FF14 */
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 11%) 0%, hsl(0 0% 5.1%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 11%) 0%, hsl(0 0% 8%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(174 100% 40%) 0%, hsl(120 100% 55%) 100%);
+    
+    /* Shadows and glows */
+    --shadow-elegant: 0 4px 20px -2px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 8px 32px -4px hsl(0 0% 0% / 0.4);
+    --glow-teal: 0 0 20px hsl(174 100% 40% / 0.3);
+    --glow-neon: 0 0 20px hsl(120 100% 55% / 0.3);
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Component tokens */
+    --card: var(--surface);
+    --card-foreground: var(--foreground);
+    --border: 0 0% 20%;
+    --input: var(--surface);
+    --ring: var(--teal);
+    --radius: 0.75rem;
+    
+    --primary: var(--teal);
+    --primary-foreground: 0 0% 98%;
+    --secondary: var(--surface);
+    --secondary-foreground: var(--foreground);
+    --accent: var(--neon-green);
+    --accent-foreground: 0 0% 8%;
+    --muted: var(--surface);
+    --muted-foreground: 0 0% 60%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: var(--foreground);
+    
+    --popover: var(--surface);
+    --popover-foreground: var(--foreground);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Hero section styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+  
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+  
+  /* Glow effects */
+  .glow-teal {
+    box-shadow: var(--glow-teal);
+  }
+  
+  .glow-neon {
+    box-shadow: var(--glow-neon);
+  }
+  
+  /* Interactive elements */
+  .interactive-card {
+    @apply transition-all duration-300 hover:scale-[1.02] cursor-pointer;
+    transition: var(--transition-smooth);
+  }
+  
+  .interactive-card:hover {
+    box-shadow: var(--shadow-card), var(--glow-teal);
+  }
+  
+  /* Timeline accent line */
+  .timeline-accent {
+    background: var(--gradient-accent);
+    box-shadow: var(--glow-teal);
+  }
+  
+  /* Button variants */
+  .btn-hero {
+    @apply bg-teal text-white px-8 py-4 rounded-xl font-semibold;
+    @apply transition-all duration-300 hover:scale-105;
+    box-shadow: var(--glow-teal);
+  }
+  
+  .btn-hero:hover {
+    box-shadow: var(--glow-teal), 0 8px 25px -5px hsl(174 100% 40% / 0.4);
+  }
+  
+  /* Glass effect */
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: hsl(0 0% 8% / 0.8);
+    border: 1px solid hsl(0 0% 20% / 0.3);
+  }
+}
