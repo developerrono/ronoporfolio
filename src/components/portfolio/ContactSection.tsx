@@ -17,7 +17,7 @@ const ContactSection = () => {
     await new Promise(resolve => setTimeout(resolve, 1000));
     
     toast({
-      title: "Message sent! 🚀",
+      title: "Message sent! ",
       description: "Thanks for reaching out. I'll get back to you soon!",
     });
     
@@ -45,7 +45,6 @@ const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Contact Info */}
           <div className="space-y-8">
             <div>
               <h3 className="text-xl font-heading font-bold mb-4">Get in Touch</h3>
@@ -99,7 +98,7 @@ const ContactSection = () => {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="your.email@example.com"
+                    placeholder="developer.rono@gmail.com"
                     required
                     className="bg-surface border-border focus:border-teal"
                   />
@@ -137,7 +136,7 @@ const ContactSection = () => {
                 disabled={isSubmitting}
                 className="w-full bg-teal hover:bg-teal-glow text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {isSubmitting ? "Sending..." : "Send Message 🚀"}
+                {isSubmitting ? "Sending..." : "Send Message "}
               </Button>
             </form>
           </div>

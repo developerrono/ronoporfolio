@@ -17,7 +17,7 @@ const HeroSection = () => {
               alt="Rono - Developer Portfolio" 
               className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full border-4 border-teal glow-teal object-cover"
             />
-            <div className="absolute -top-2 -right-2 text-3xl animate-bounce">👋</div>
+            <div className="absolute -top-2 -right-2 text-3xl animate-bounce"></div>
           </div>
           
           {/* Content */}
@@ -46,7 +46,7 @@ const HeroSection = () => {
               className="btn-hero text-lg px-8 py-4 rounded-xl font-semibold"
               size="lg"
             >
-              Let's Work Together 🚀
+              Let's Work Together 
             </Button>
           </div>
         </div>
