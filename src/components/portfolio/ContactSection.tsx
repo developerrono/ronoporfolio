@@ -28,18 +28,19 @@ const ContactSection = () => {
   const socialLinks = [
     { icon: Mail, href: "mailto:developer.rono@gmail.com", label: "Email" },
     { icon: Github, href: "https://github.com/developerrono", label: "GitHub" },
-    { icon: Linkedin, href: "www.linkedin.com/in/developer-rono-301589349", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/developer-rono-301589349", label: "LinkedIn" },
     { icon: Twitter, href: "https://x.com/Developer_rono?t=Vy2DpmKlV0WV_ZDnb-TPAg&s=09", label: "Twitter" }
   ];
 
   return (
-    <section className="py-20 px-6 bg-surface" id="contact">
+    // Set background to deep black
+    <section className="py-20 px-6 bg-gray-950" id="contact">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-white">
             Let's Build Something Together
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             Have a project in mind? I'd love to hear about it. Let's discuss how we can bring your ideas to life.
           </p>
         </div>
@@ -47,14 +48,15 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
             <div>
-              <h3 className="text-xl font-heading font-bold mb-4">Get in Touch</h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <h3 className="text-xl font-heading font-bold mb-4 text-white">Get in Touch</h3>
+              <p className="text-gray-400 leading-relaxed">
                 I'm always interested in new opportunities and exciting projects. 
                 Whether you're a startup looking to build your MVP or an established 
                 company needing technical expertise, let's talk!
               </p>
             </div>
             
+            {/* Social Links - Updated for Minimalist Tech Look */}
             <div className="flex flex-wrap gap-4">
               {socialLinks.map((link, index) => {
                 const Icon = link.icon;
@@ -64,23 +66,24 @@ const ContactSection = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 card-gradient rounded-xl border border-border hover:border-teal/50 transition-all duration-300 group"
+                    // Transparent button style with teal border and hover
+                    className="flex items-center gap-3 p-4 rounded-xl border border-teal-500/50 hover:border-teal-500 transition-all duration-300 group bg-gray-900 shadow-lg shadow-teal-500/10"
                     aria-label={link.label}
                   >
-                    <Icon className="w-5 h-5 text-teal group-hover:scale-110 transition-transform" />
-                    <span className="font-medium">{link.label}</span>
+                    <Icon className="w-5 h-5 text-teal-500 group-hover:scale-110 transition-transform" />
+                    <span className="font-mono text-white group-hover:text-teal-400 transition-colors">{link.label}</span>
                   </a>
                 );
               })}
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="card-gradient p-8 rounded-2xl border border-border">
+          {/* Contact Form - Updated for Dark Theme */}
+          <div className="bg-gray-900 p-8 rounded-2xl border border-teal-500/30 shadow-2xl shadow-teal-500/10">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-white">
                     Name
                   </label>
                   <Input
@@ -88,11 +91,12 @@ const ContactSection = () => {
                     type="text"
                     placeholder="Your name"
                     required
-                    className="bg-surface border-border focus:border-teal"
+                    // Dark inputs with teal focus
+                    className="bg-gray-800 border-gray-700 text-white focus:border-teal-500 focus:ring-teal-500"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-white">
                     Email
                   </label>
                   <Input
@@ -100,13 +104,14 @@ const ContactSection = () => {
                     type="email"
                     placeholder="developer.rono@gmail.com"
                     required
-                    className="bg-surface border-border focus:border-teal"
+                    // Dark inputs with teal focus
+                    className="bg-gray-800 border-gray-700 text-white focus:border-teal-500 focus:ring-teal-500"
                   />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium mb-2 text-white">
                   Subject
                 </label>
                 <Input
@@ -114,12 +119,13 @@ const ContactSection = () => {
                   type="text"
                   placeholder="Project inquiry"
                   required
-                  className="bg-surface border-border focus:border-teal"
+                  // Dark inputs with teal focus
+                  className="bg-gray-800 border-gray-700 text-white focus:border-teal-500 focus:ring-teal-500"
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2">
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-white">
                   Message
                 </label>
                 <Textarea
@@ -127,16 +133,18 @@ const ContactSection = () => {
                   placeholder="Tell me about your project..."
                   required
                   rows={6}
-                  className="bg-surface border-border focus:border-teal resize-none"
+                  // Dark textarea with teal focus
+                  className="bg-gray-800 border-gray-700 text-white focus:border-teal-500 focus:ring-teal-500 resize-none"
                 />
               </div>
               
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-teal hover:bg-teal-glow text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                // Strong teal submit button
+                className="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-teal-500/40 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                {isSubmitting ? "Sending..." : "Send Message "}
+                {isSubmitting ? "Sending..." : "Send Message →"}
               </Button>
             </form>
           </div>
