@@ -5,7 +5,6 @@
 @tailwind utilities;
 
 /* Rono's Dark Portfolio Design System */
-
 @layer base {
   :root {
     /* Dark portfolio color palette */

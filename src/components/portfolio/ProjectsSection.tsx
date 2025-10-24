@@ -1,101 +1,128 @@
-import bankingImg from "@/assets/project-banking.jpg";
-import ecommerceImg from "@/assets/project-ecommerce.jpg";
-import healthcareImg from "@/assets/project-healthcare.jpg";
-import travelImg from "@/assets/project-travel.jpg";
-import sleepImg from "@/assets/project-sleep.jpg";
-import web3Img from "@/assets/project-web3.jpg";
+import React from "react";
 
-const ProjectsSection = () => {
-  const webDevelopment = [
-    {
-      title: "Mobile Banking App",
-      category: "FinTech",
-      image: bankingImg,
-      problem: "Traditional banking apps lack user-friendly interfaces and quick transaction capabilities",
-      solution: "Created an intuitive banking experience with seamless QR payments and accessibility features",
-      features: ["Easy transfers", "QR code payments", "Light/dark mode", "Accessibility compliance"],
-      tech: ["React Native", "Node.js", "TypeScript", "Stripe API"]
-    },
-    {
-      title: "E-commerce Platform",
-      category: "Retail",
-      image: ecommerceImg,
-      problem: "Online shopping experiences are often cluttered and have complex checkout processes",
-      solution: "Designed a clean, modern e-commerce platform focused on user experience and conversion",
-      features: ["Smart search", "360° product view", "One-click checkout", "AI recommendations"],
-      tech: ["React", "Next.js", "Tailwind CSS", "Shopify API"]
-    },
-    {
-      title: "Hospital Management System", 
-      category: "Healthcare",
-      image: healthcareImg,
-      problem: "Patients struggle to access healthcare services remotely and manage their health data",
-      solution: "Built a comprehensive telemedicine platform connecting patients with healthcare providers",
-      features: ["Doctor booking", "Video consultations", "Medication reminders", "Health records"],
-      tech: ["React", "WebRTC", "Node.js", "Socket.io"]
-    }
-  ];
+// --- Type Definition for Project Data ---
+interface Project {
+  icon: string;
+  title: string;
+  description: string;
+  tags: string[];
+  link: string; // Mandatory link for the View Project button
+}
 
-  
-};
+// --- Project Data ---
+const projects: Project[] = [
+  {
+    icon: "🛍️",
+    title: "Mobile E-commerce (Rono E-Shop)",
+    description:
+      "A fully responsive e-commerce platform designed for a seamless mobile-first shopping experience, demonstrating product listing and cart functionality.",
+    tags: ["React", "Mobile First", "E-commerce", "State Management"],
+    link: "https://rono-e-shop.vercel.app/",
+  },
+  {
+    icon: "🏦",
+    title: "Simple Banking Interface",
+    description:
+      "A clean and modern user interface for a banking application prototype, focusing on intuitive transaction viewing and account management.",
+    tags: ["UI/UX", "React", "Data Visualization", "Prototype"],
+    link: "https://simplebanking-interfece.vercel.app/",
+  },
+  {
+    icon: "🏥",
+    title: "Jamii International Hospital",
+    description:
+      "An informational website for a medical facility, optimized for quick access to services, contact information, and patient resources.",
+    tags: ["HTML/CSS", "JavaScript", "Responsive Design", "Healthcare"],
+    link: "https://jamii-international-hospital.vercel.app/",
+  },
+];
 
-const ProjectCard = ({ project }: { project: any }) => {
+// --- Projects Section Component ---
+const ProjectsSection: React.FC = () => {
   return (
-    <div className="card-gradient rounded-2xl overflow-hidden border border-border interactive-card group">
-      <div className="relative overflow-hidden">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <div className="absolute top-4 right-4">
-          <span className="px-3 py-1 bg-teal/20 text-teal text-sm font-medium rounded-full backdrop-blur-sm">
-            {project.category}
-          </span>
+    <section className="py-20 px-6 bg-gray-950" id="projects">
+      <div className="container mx-auto max-w-6xl">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-extrabold text-white mb-4 font-heading">
+            Featured Web Development Projects
+          </h2>
+          <p className="text-xl text-gray-400">
+            Showcasing diverse expertise from e-commerce to healthcare systems.
+          </p>
+        </div>
+
+        {/* Project Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="group transform hover:scale-[1.02] transition-transform duration-300 ease-in-out 
+                         rounded-xl bg-gray-900 border border-green-400/10 shadow-xl shadow-green-500/5 
+                         h-full flex flex-col overflow-hidden"
+            >
+              <div className="p-8 flex flex-col h-full">
+                {/* Icon */}
+                <div className="text-5xl mb-6 text-center">{project.icon}</div>
+
+                {/* Title */}
+                <h3
+                  className="text-2xl font-bold text-white mb-3 text-center 
+                             group-hover:text-green-400 transition-colors"
+                >
+                  {project.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-400 leading-relaxed mb-6 flex-grow text-center">
+                  {project.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 justify-center mb-6">
+                  {project.tags.map((tag, idx) => (
+                    <span
+                      key={idx}
+                      className="px-3 py-1 text-xs font-medium rounded-full 
+                                 bg-gray-800 text-green-300 border border-green-600/30"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                {/* View Project Button */}
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex justify-center items-center px-6 py-3 text-sm font-semibold rounded-lg 
+                             bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white 
+                             shadow-lg shadow-green-500/30 hover:shadow-green-400/50 
+                             hover:scale-105 transition-all duration-300 mt-auto"
+                >
+                  View Project
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-      
-      <div className="p-6">
-        <h3 className="text-xl font-heading font-bold mb-3 group-hover:text-teal transition-colors">
-          {project.title}
-        </h3>
-        
-        <div className="space-y-4 text-sm">
-          <div>
-            <h4 className="font-semibold text-neon-green mb-1">Problem</h4>
-            <p className="text-muted-foreground leading-relaxed">{project.problem}</p>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold text-teal mb-1">Solution</h4>
-            <p className="text-muted-foreground leading-relaxed">{project.solution}</p>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-2">Key Features</h4>
-            <div className="flex flex-wrap gap-2">
-              {project.features.map((feature: string, idx: number) => (
-                <span key={idx} className="px-2 py-1 bg-surface text-xs rounded-full">
-                  {feature}
-                </span>
-              ))}
-            </div>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-2">Technologies</h4>
-            <div className="flex flex-wrap gap-2">
-              {project.tech.map((tech: string, idx: number) => (
-                <span key={idx} className="px-2 py-1 bg-teal/10 text-teal text-xs rounded-full border border-teal/20">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 

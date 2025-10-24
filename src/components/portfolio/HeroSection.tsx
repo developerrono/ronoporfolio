@@ -28,21 +28,21 @@ const HeroSection: React.FC = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-black text-gray-200 px-6 py-20 overflow-hidden">
-      {/* ⏱ Timer in top-right */}
+      {/* 🕒 Timer (top right corner) */}
       <div className="absolute top-6 right-6 text-gray-400 text-sm tracking-wide font-mono">
         {currentTime}
       </div>
 
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Profile Image with online dot */}
+          {/* Profile Image + Online Dot */}
           <div className="relative flex-shrink-0">
             <img
               src={myphoto}
               alt="Rono - Developer Portfolio"
               className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full border border-gray-700 object-cover shadow-[0_0_20px_rgba(52,211,153,0.15)]"
             />
-            {/* Subtle online dot */}
+            {/* Subtle Online Indicator */}
             <div className="absolute bottom-3 right-3 w-4 h-4 bg-green-400 rounded-full ring-2 ring-black animate-pulse" />
           </div>
 
@@ -65,10 +65,15 @@ const HeroSection: React.FC = () => {
               </p>
             </div>
 
+            {/* ✅ Fixed Button (merged both classNames cleanly) */}
             <Button
               onClick={scrollToContact}
-              className="bg-green-500/20 hover:bg-green-400/30 text-green-300 font-semibold px-8 py-4 rounded-xl border border-green-400/40 transition-transform transform hover:scale-105 backdrop-blur-sm"
               size="lg"
+              className="group relative px-10 py-4 text-lg font-medium rounded-xl 
+                         bg-green-500/20 hover:bg-green-400/30 text-green-300 
+                         border border-green-400/40 shadow-md 
+                         backdrop-blur-sm transition-all duration-300 
+                         hover:scale-105 hover:shadow-green-400/40"
             >
               Let’s Work Together
             </Button>
