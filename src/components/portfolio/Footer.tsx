@@ -11,7 +11,6 @@ const Footer = () => {
           
           <div className="text-center md:text-right">
             <p className="text-sm text-muted-foreground">
-              Built with <span className="text-teal">React</span>, <span className="text-teal">TypeScript</span> & <span className="text-teal">Love</span>
             </p>
           </div>
         </div>

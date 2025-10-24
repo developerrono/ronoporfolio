@@ -25,12 +25,15 @@ const ContactSection = () => {
     (e.target as HTMLFormElement).reset();
   };
 
-  const socialLinks = [
-    { icon: Mail, href: "mailto:developer.rono@gmail.com", label: "Email" },
-    { icon: Github, href: "https://github.com/developerrono", label: "GitHub" },
-    { icon: Linkedin, href: "www.linkedin.com/in/developer-rono-301589349", label: "LinkedIn" },
-    { icon: Twitter, href: "https://x.com/Developer_rono?t=Vy2DpmKlV0WV_ZDnb-TPAg&s=09", label: "Twitter" }
-  ];
+// or from "react-icons/fi" depending on what you use
+
+const socialLinks = [
+  { icon: Mail, href: "mailto:developer.rono@gmail.com", label: "Email" },
+  { icon: Github, href: "https://github.com/developerrono", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/developer-rono-301589349", label: "LinkedIn" },
+  { icon: Twitter, href: "https://x.com/Developer_rono?t=Vy2DpmKlV0WV_ZDnb-TPAg&s=09", label: "Twitter" },
+];
+
 
   return (
     <section className="py-20 px-6 bg-surface" id="contact">
