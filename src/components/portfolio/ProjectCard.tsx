@@ -1,10 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-
 interface Project {
   title: string;
   category: string;
-  image: string;
   problem: string;
   solution: string;
   features: string[];
@@ -12,50 +8,57 @@ interface Project {
   link?: string;
 }
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectBlock = ({ project }: { project: Project }) => {
   return (
-    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-      {/* Image */}
-      <div className="relative">
-        <img
-          src={project.image}
-          alt={project.title}
-          className="w-full h-48 object-cover"
-        />
+    <div className="border-t border-black dark:border-white py-20">
+
+      {/* Header Row */}
+      <div className="grid md:grid-cols-2 gap-12">
+
+        {/* Left Column */}
+        <div>
+          <p className="text-xs tracking-widest uppercase text-gray-500 dark:text-gray-400 mb-6">
+            {project.category}
+          </p>
+
+          <h3 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
+            {project.title}
+          </h3>
+        </div>
+
+        {/* Right Column */}
+        <div className="text-gray-500 dark:text-gray-400 space-y-6 text-base leading-relaxed">
+          <p>
+            <span className="text-black dark:text-white font-medium">Problem:</span>{" "}
+            {project.problem}
+          </p>
+
+          <p>
+            <span className="text-black dark:text-white font-medium">Solution:</span>{" "}
+            {project.solution}
+          </p>
+        </div>
+
       </div>
 
-      {/* Content */}
-      <CardContent className="p-5">
-        <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-        <p className="text-sm text-muted-foreground mb-2">{project.category}</p>
-        <p className="text-sm text-muted-foreground mb-3">{project.problem}</p>
-        <p className="text-sm mb-4">{project.solution}</p>
+      {/* Features */}
+      <div className="mt-12 grid md:grid-cols-2 gap-12">
 
-        <ul className="text-sm list-disc list-inside text-muted-foreground mb-4">
+        <ul className="space-y-3 text-sm text-gray-500 dark:text-gray-400">
           {project.features.map((feature, i) => (
-            <li key={i}>{feature}</li>
+            <li key={i}>— {feature}</li>
           ))}
         </ul>
 
-        <div className="flex flex-wrap gap-2">
-          {project.tech.map((t, i) => (
-            <span
-              key={i}
-              className="bg-secondary text-secondary-foreground text-xs px-2 py-1 rounded-full"
-            >
-              {t}
+        <div className="space-y-6">
+          <div className="text-sm text-gray-500 dark:text-gray-400">
+            <span className="uppercase tracking-widest text-xs block mb-3">
+              Technology
             </span>
-          ))}
-        </div>
-      </CardContent>
+            <p>{project.tech.join(" / ")}</p>
+          </div>
 
-      {/* ✅ View Button */}
-      {project.link && (
-        <CardFooter className="p-4 flex justify-end">
-          <Button
-            asChild
-            className="bg-gradient-to-r from-teal-500 to-blue-500 hover:opacity-90 text-white font-semibold"
-          >
+          {project.link && (
             <a
               href={
                 project.link.startsWith("http")
@@ -64,14 +67,17 @@ const ProjectCard = ({ project }: { project: Project }) => {
               }
               target="_blank"
               rel="noopener noreferrer"
+              className="inline-block text-xs tracking-widest uppercase border-b border-black dark:border-white pb-1 hover:opacity-60 transition-opacity duration-200"
             >
               View Project
             </a>
-          </Button>
-        </CardFooter>
-      )}
-    </Card>
+          )}
+        </div>
+
+      </div>
+
+    </div>
   );
 };
 
-export default ProjectCard;
+export default ProjectBlock;

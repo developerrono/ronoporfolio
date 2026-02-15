@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import myphoto from "@/assets/myphoto.jpg";
-import { Button } from "@/components/ui/button";
 
 const scrollToSection = (id: string) => {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -11,7 +9,7 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     const updateTime = () => {
-      const formattedTime = new Date().toLocaleTimeString("en-US", {
+      const formattedTime = new Date().toLocaleTimeString("en-GB", {
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
@@ -27,57 +25,46 @@ const HeroSection: React.FC = () => {
   const scrollToContact = () => scrollToSection("contact");
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-black text-gray-200 px-6 py-20 overflow-hidden">
-      {/* 🕒 Timer (top right corner) */}
-      <div className="absolute top-6 right-6 text-gray-400 text-sm tracking-wide font-mono">
-        {currentTime}
-      </div>
+    <section className="min-h-screen flex items-center bg-white text-black dark:bg-black dark:text-white px-6">
+      <div className="max-w-6xl mx-auto w-full">
 
-      <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
-          {/* Profile Image + Online Dot */}
-          <div className="relative flex-shrink-0">
-            <img
-              src={myphoto}
-              alt="Rono - Developer Portfolio"
-              className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full border border-gray-700 object-cover shadow-[0_0_20px_rgba(52,211,153,0.15)]"
-            />
-            {/* Subtle Online Indicator */}
-            <div className="absolute bottom-3 right-3 w-4 h-4 bg-green-400 rounded-full ring-2 ring-black animate-pulse" />
-          </div>
+        {/* Top Bar */}
+        <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mb-24 tracking-wide">
+          <div>Rono Kibet</div>
+          <div className="font-mono">{currentTime}</div>
+        </div>
 
-          {/* Text Content */}
-          <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-gray-100 to-green-400 bg-clip-text text-transparent">
-              Hi, I'm Rono
+        {/* Main Layout */}
+        <div className="grid md:grid-cols-2 gap-20 items-center">
+
+          {/* Left — Identity */}
+          <div>
+            <h1 className="text-6xl md:text-7xl font-semibold leading-tight tracking-tight">
+              Frontend Engineer
+              <br />
+              & Systems Builder
             </h1>
 
-            <p className="text-green-400/80 text-lg md:text-xl mb-8 font-medium">
-              IT Support&nbsp;|&nbsp;UI/UX Designer&nbsp;|&nbsp;Web Developer
+            <p className="mt-8 text-xl text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">
+              I design and build minimal, performance-focused web applications.
+              Structured thinking. Clean interfaces. Analytical systems.
             </p>
 
-            <div className="max-w-2xl lg:max-w-none mb-8 text-gray-400 leading-relaxed space-y-4">
-              <p>
-                I design and build clean, intuitive digital experiences that merge aesthetics with performance.
-              </p>
-              <p>
-                Focused on crafting efficient, user-centered web applications that deliver meaningful impact.
-              </p>
-            </div>
-
-            {/* ✅ Fixed Button (merged both classNames cleanly) */}
-            <Button
+            <button
               onClick={scrollToContact}
-              size="lg"
-              className="group relative px-10 py-4 text-lg font-medium rounded-xl 
-                         bg-green-500/20 hover:bg-green-400/30 text-green-300 
-                         border border-green-400/40 shadow-md 
-                         backdrop-blur-sm transition-all duration-300 
-                         hover:scale-105 hover:shadow-green-400/40"
+              className="mt-12 border border-black dark:border-white px-8 py-4 text-sm tracking-wide uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-200"
             >
-              Let’s Work Together
-            </Button>
+              Contact
+            </button>
           </div>
+
+          {/* Right — Logo Placeholder */}
+          <div className="flex justify-start md:justify-end">
+            <div className="w-56 h-56 border border-black dark:border-white flex items-center justify-center text-xs tracking-widest uppercase">
+              Logo
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
