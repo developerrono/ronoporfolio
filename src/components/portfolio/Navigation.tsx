@@ -17,20 +17,19 @@ const HeroSection: React.FC = () => {
       });
       setCurrentTime(formattedTime);
     };
+
     updateTime();
     const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToContact = () => scrollToSection("contact");
-
   return (
-    <section className="min-h-screen flex items-center bg-white text-black dark:bg-black dark:text-white px-6">
+    <section className="min-h-screen flex items-center bg-white text-black px-6">
       <div className="max-w-6xl mx-auto w-full">
 
         {/* Top Bar */}
-        <div className="flex justify-between items-center text-xs tracking-wider text-gray-500 dark:text-gray-400 mb-32">
-          <div className="uppercase">Rono Kibet</div>
+        <div className="flex justify-between items-center text-xs uppercase tracking-widest mb-32">
+          <div>Rono Kibet</div>
           <div className="font-mono">{currentTime}</div>
         </div>
 
@@ -40,28 +39,37 @@ const HeroSection: React.FC = () => {
           {/* Left — Identity */}
           <div>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] tracking-tight">
-              Frontend Engineer
+              Systems Builder
               <br />
-              & Systems Builder
+              & Analytical Thinker
             </h1>
 
-            <p className="mt-10 text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-xl leading-relaxed">
-              I design and build minimal, performance-focused web applications.
-              Structured thinking. Clean interfaces. Analytical systems.
+            <p className="mt-12 text-lg max-w-xl leading-relaxed text-gray-600">
+              I design structured digital systems at the intersection of
+              trading, software, and minimal design. Precision over noise.
+              Function over decoration.
             </p>
 
             <button
-              onClick={scrollToContact}
-              className="mt-14 border border-black dark:border-white px-10 py-4 text-xs tracking-widest uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-200"
+              onClick={() => scrollToSection("contact")}
+              className="mt-16 border border-black px-10 py-4 text-xs uppercase tracking-widest
+                         hover:bg-black hover:text-white transition-colors duration-200"
             >
               Contact
             </button>
           </div>
 
-          {/* Right — Logo Placeholder */}
+          {/* Right — Identity Block */}
           <div className="flex justify-start md:justify-end">
-            <div className="w-56 h-56 border border-black dark:border-white flex items-center justify-center text-xs tracking-[0.3em] uppercase">
-              Logo
+            <div className="w-64 h-64 border border-black flex items-center justify-center">
+              <div className="text-center">
+                <div className="text-sm uppercase tracking-widest">
+                  RONO
+                </div>
+                <div className="text-xs mt-2 text-gray-600">
+                  Developer 
+                </div>
+              </div>
             </div>
           </div>
 
