@@ -43,6 +43,13 @@ const projects: Project[] = [
     tags: ["Layout System", "Design Systems", "Frontend"],
     link: "https://remix-of-stark-architect-showcase-dusky.vercel.app/",
   },
+  {
+  title: "Session Stream",
+  description:
+    "A real-time trading session visualization platform showing global market sessions with dynamic time tracking.",
+  tags: ["React", "Trading", "Time Tracking", "UI"],
+  link: "https://session-stream-mu.vercel.app/",
+},
 ];
 
 const ProjectsSection: React.FC = () => {
@@ -65,38 +72,45 @@ const ProjectsSection: React.FC = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="border border-gray-200 p-10 flex flex-col justify-between"
+              className="group relative border border-gray-200 p-10 flex flex-col justify-between
+                         bg-white transition-all duration-500 ease-out
+                         hover:border-black hover:shadow-2xl hover:-translate-y-2 hover:bg-gray-50"
             >
               <div>
-                <h3 className="text-2xl font-medium mb-4">
+                <h3 className="text-2xl font-medium mb-4 transition-transform duration-300 
+                               group-hover:translate-x-1">
                   {project.title}
                 </h3>
 
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-gray-600 leading-relaxed mb-6 transition-colors duration-300 
+                              group-hover:text-gray-900">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-3 mb-8">
-                  {project.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs uppercase tracking-wide border border-gray-300 px-3 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
+      <div className="flex flex-wrap gap-3 mb-8">
+        {project.tags.map((tag, idx) => (
+          <span
+            key={idx}
+            className="text-xs uppercase tracking-wide border border-gray-300 px-3 py-1
+                       transition-all duration-300
+                       group-hover:border-black group-hover:bg-black group-hover:text-white"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </div>
 
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block border border-black px-6 py-3 text-sm font-medium 
-                           hover:bg-black hover:text-white transition-colors duration-200"
-              >
-                View Project
-              </a>
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block border border-black px-6 py-3 text-sm font-medium 
+                 bg-white text-black transition-all duration-300 ease-out
+                 hover:bg-black hover:text-white hover:tracking-wide hover:shadow-lg"
+    >
+      View Project →
+    </a>
             </div>
           ))}
         </div>

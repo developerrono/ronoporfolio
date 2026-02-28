@@ -34,18 +34,48 @@ export default function Index() {
   return (
     <div className="min-h-screen transition-colors duration-300">
       
-      {/* Navigation */}
-      <nav className="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center border-b border-black dark:border-white">
-        <div className="text-lg font-medium tracking-wide">
-          RONO
-        </div>
+      {/* Architectural Navbar */}
+      <header className="w-full bg-gray-100 dark:bg-black border-b border-gray-200 dark:border-white">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex items-center justify-between h-20">
+            
+            {/* Left Logo */}
+            <div className="text-sm tracking-widest font-medium">
+              RONO STUDIO
+            </div>
 
-        <div className="flex items-center gap-8 text-sm uppercase tracking-widest">
-          <button onClick={toggleTheme} className="border px-3 py-1">
-            Theme
-          </button>
+            {/* Center Navigation */}
+            <nav className="hidden md:flex items-center space-x-12 text-sm tracking-wide uppercase">
+              <a href="#work" className="hover:opacity-60 transition-opacity">
+                Work
+              </a>
+              <a href="#services" className="hover:opacity-60 transition-opacity">
+                Services
+              </a>
+              <a href="#about" className="hover:opacity-60 transition-opacity">
+                About
+              </a>
+              <a href="#blog" className="hover:opacity-60 transition-opacity">
+                Blog
+              </a>
+              <a href="#contact" className="hover:opacity-60 transition-opacity">
+                Contact
+              </a>
+            </nav>
+
+            {/* Right Side */}
+            <div className="flex items-center gap-6">
+              <button
+                onClick={toggleTheme}
+                className="text-sm border px-4 py-1 transition-colors hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
+              >
+                Theme
+              </button>
+            </div>
+
+          </div>
         </div>
-      </nav>
+      </header>
 
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 py-32">

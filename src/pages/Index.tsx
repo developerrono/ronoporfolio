@@ -3,12 +3,13 @@ import RoadmapSection from "@/components/portfolio/RoadmapSection";
 import ProjectsSection from "@/components/portfolio/ProjectsSection";
 import ContactSection from "@/components/portfolio/ContactSection";
 import Footer from "@/components/portfolio/Footer";
-import Navigation from "@/components/portfolio/Navigation";
+import Herosections from "@/components/portfolio/Herosection";
+import HeroSection from "@/components/portfolio/Herosection";
 
 const Index = () => {
   return (
     <main className="min-h-screen" id="hero">
-      <Navigation />
+      <HeroSection/>
       <RoadmapSection />
       <ProjectsSection />
       <ContactSection />
